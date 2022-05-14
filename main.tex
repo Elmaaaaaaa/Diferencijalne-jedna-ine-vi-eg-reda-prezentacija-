@@ -1,0 +1,697 @@
+\documentclass{beamer}
+
+\mode<presentation>{
+%\usetheme{Warsaw}
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+\usepackage{tcolorbox}
+\usepackage{lipsum}
+\newcommand{\arctg}[1]{\text{arctg}(#1) }
+\newcommand{\tg}[1]{\text{tg}(#1)}
+}
+\usepackage[utf8]{inputenc}
+\usepackage{default}
+\usepackage[portuguese]{babel}
+\usepackage{pgfplots}
+\pgfplotsset{/pgf/number format/use comma,compat=newest}
+\usepackage{color}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{enumerate}
+\usepackage{listings}
+
+\newtheorem{deff}{Definicija}
+\newtheorem{thm}{\textrm{Teorem}}[section]
+\newtheorem{defn}{\textrm{Definicija}}[section]
+\newtheorem{pos}{\textrm{Posljedica}}[section]
+\newtheorem{lema}{\textrm{Lema}}[section]
+\newtheorem{pri}{\textrm{Primjer}}[section]
+\newtheorem{prim}{\textrm{Primjedba}}[section]
+\newenvironment{dokaz}{\noindent\textbf{\textrm{Dokaz:}}}{\rule{0.3cm}{0.3cm}}
+\newenvironment{rje}{\noindent\textit{Rje\v senje:}}{$\clubsuit$}
+\renewcommand{\dj}{d\kern-0.4em\char"16\kern-0.1em}
+\renewcommand{\DJ}{\raise0.3ex\hbox{-}\kern-0.36em D}
+\renewcommand{\figurename}{Slika}
+
+
+
+
+
+
+
+
+\title{DIFERENCIJALNE JEDNAČINE VI\v SEG  REDA}
+\author{ \bf 
+}
+\institute[]{\includegraphics[height=1in]{index.png}{\vspace{.1cm}}\\ \bf UNIVERZITET U TUZLI {\vspace{.1cm}} \\  FAKULTET ELEKTROTEHNIKE {\vspace{.1cm}}\\ {\bf AKADEMSKA: 2019./20.}}
+\date{\hspace{8cm} }
+
+
+\begin{document}
+
+\begin{frame}
+ \maketitle 
+\end{frame}
+
+%\begin{frame}
+%\frametitle{Sumário}
+ %\tableofcontents
+%\end{frame}
+
+
+\section{Homogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima}
+
+
+
+\begin{frame}
+\frametitle{Homogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima} 
+\begin{alertblock}{Opšti oblik}\begin{eqnarray}
+y^{(n)} + a_{1}y^{(n-1)}+ ... + a_{n}y = 0
+\end{eqnarray}
+gdje su $a_{1},...,a_{n} \in \mathbb{R}$ poznate konstante. \end{alertblock}
+\begin{alertblock}{Način rješavanja}Rje\v senje  diferencijalne jednačine (3) je oblika:  $$y = e^{r x},$$  ako je $r$¸ rje\v senje karakteristi\v cne jedna\v cine:
+\begin{eqnarray}
+r^{n} + a_{1}r^{n-1}+ ... + a_{n} = 0.
+\end{eqnarray}
+Prilikom rje\v savanja jedna\v cine (4) mogu da nastupe sljede\' ci slu\v cajevi:
+\end{alertblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Homogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima} 
+\begin{alertblock}{Način rješavanja}\begin{enumerate}
+    \item Rješenje $r_i$ je jedinstveno i $r_i \in \mathbb{R}$. Tada je $y_{hi} = C_{i}e^{r_ix}.$
+    \item  Rješenje $r_i$ je višestruko i red višestrukosti je $k$ (ima k istih rješenja) i  $r_i \in \mathbb{R}$. Tada je: $$y_{hi} = C_{i}e^{r_ix} + C_{i + 1}xe^{r_ix} +  C_{i + 2}x^{2}e^{r_ix} +...+ C_{i + k}x^{k-1}e^{r_ix}  .$$
+    \item Rješenje $r_i$ je konjugovano kompleksni broj oblika: $\alpha \pm i\beta$. Onda je: $$y_{hi} = e^{\alpha x}(C_{i} \cos{\beta x} + C_{i+1} \sin{\beta x}).$$ 
+\end{enumerate}
+Rješenje polazne jednačine je: $y_{H}= \sum{y_{hi}}.$
+\end{alertblock}
+\end{frame}
+\begin{frame}
+\frametitle{Homogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima} 
+
+\begin{pri}
+Odrediti opšte rješenje diferencijalne jednačine $$y''' + 3y'' + 3y' + y = 0,$$ te partikularno
+ rješenje uz početne uslove: $y(0) = 1, $ $y'(0) = 2,$ i $y''(0) = 3$.
+\end{pri}
+\emph{Rješenje:}
+
+Karakteristična jednačina : 
+Uvodimo smjenu: $y= e^{rx}$ \\
+$y'= re^{rx }, $ $y''= r^{2}e^{rx }, $ $y'''= r^{3}e^{rx }. $
+$$r^{3}e^{rx } + 3r^{2}e^{rx } + 3re^{rx } + e^{rx } = 0 / : e^{rx }$$
+$$r^{3} + 3r^{2} + 3r + 1 = 0$$
+
+$$(r + 1)^{3} = 0$$ 
+\end{frame}
+\begin{frame}
+\frametitle{Homogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima} 
+ 
+ $$r_{1,2,3} = -1.$$  
+ 
+ Rješenje je višestruko, višestrukosti $k=3.$ 
+ Opšte rješenje: 
+ 
+$$y(x) = C_{1}e^{-x} + C_{2}xe^{-x} + C_{3}x^{2}e^{-x}.$$
+Tražimo partikularno rješenje:
+
+$$y(0) = 1.$$
+
+$$1 = C_{1}e^{0} + C_{2}\cdot 0 \cdot e^{0}+ C_{3} \cdot0^{2} \cdot e^{0}.$$
+
+$$ C_{1} = 1 .$$
+\end{frame}
+
+\begin{frame}
+\frametitle{Homogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima} 
+
+Tražimo partikularno rješenje:
+
+
+
+$$y'(0) = 2.$$
+
+$$y'(x) =-C_{3}x^{2}e^{-x}+ 2C_{3}xe^{-x} - C_{2}xe^{-x}+ C_{2}e^{-x} -  C_{1}e^{-x}.$$
+
+$$2 = -C_{3}\cdot 0^{2}\cdot e^{0}+ 2C_{3}\cdot 0 \cdot e^{0} - C_{2}\cdot 0 \cdot e^{0}+ C_{2}e^{0} -  C_{1}e^{0}.$$
+
+$$2 =  C_{2} -  C_{1}.$$
+
+$$2 =  C_{2} -  1.$$
+
+$$C_{2} = 3.$$
+\end{frame}
+\begin{frame}
+\frametitle{Homogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima}
+$$y''(0) = 3$$
+
+$$y''(x) =C_{3}x^{2}e^{-x} - 4C_{3}xe^{-x} + C_{2}xe^{-x} + 2C_{3}e^{-x} - 2C_{2}e^{-x} +  C_{1}e^{-x}.$$
+$$3 =C_{3} \cdot 0^{2} \cdot e^{0} - 4C_{3}\cdot 0 \cdot e^{0} + C_{2}\cdot 0 \cdot e^{0} + 2C_{3}e^{0} - 2C_{2}e^{0} +  C_{1}e^{0}.$$
+
+$$3 = 2C_{3} - 2C_{2} +  C_{1}.$$
+
+$$3 = 2C_{3} - 2 \cdot 3 +  1.$$
+$$C_{3} = 4.$$
+Partikularno rješenje :
+
+$y(x) = e^{-x} + 3xe^{-x} + 4x^{2}e^{-x}.$
+
+\hskip 10 cm $\clubsuit$ \\
+\end{frame}
+
+\begin{frame}
+\frametitle{Homogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima}
+
+\begin{pri}
+Odrediti opšte rješenje diferencijalne jednačine $$y^{(4)} + 2y'' -3y = 0.$$
+\end{pri}
+
+\emph{Rješenje:}
+
+Karakteristična jednačina :
+
+$$r^{4} + 2r^{2} -3 = 0,$$
+
+
+$$(r^{2} - 1)(r^{2} + 3) = 0.$$
+
+Rješenja k.j.:
+
+$r_{1} = -1, $ $r_{2} = 1, $ $r_{3,4} = \pm \sqrt{3}i .$  \\
+
+ $r_{1} = -1 $ jedinstveno i $r_{1} \in \mathbb{R}, $ to je $$y_{h_{1}} = C_{1}e^{-x}.$$ 
+ 
+
+ 
+ \end{frame}
+ 
+ \begin{frame}
+\frametitle{Homogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima}
+$r_{2} = 1 $  je takođe jedinstveno i $r_{2} \in \mathbb{R}, $
+ $$y_{h_{2}} = C_{2}e^{x}.$$
+ 
+ Dalje, rješenje $r_{3,4} = \pm \sqrt{3}i $ je konjugovano kompleksni broj. Stoga je:
+ 
+ $$y_{h3} = e^{0 \cdot x}[C_{3} \cos{(\sqrt{3} x)} + C_{4} \sin{(\sqrt{3} x)}].$$
+ 
+ Odnosno:
+ 
+ $$y_{h3} = C_{3} \cos{(\sqrt{3} x)} + C_{4} \sin{(\sqrt{3} x)}.$$
+ 
+Opšte rješenje: $ y_{H}= y_{h1} + y_{h2} + y_{h3}.  $
+
+ $$y_{H} =  C_{1}e^{-x} +  C_{2}e^{x} + C_{3} \cos{(\sqrt{3} x)} + C_{4} \sin{(\sqrt{3} x)}.$$
+ 
+ \hskip 10 cm $\clubsuit$ \\
+ 
+
+\end{frame}
+\section{Nehomogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima}
+
+
+
+\begin{frame}
+\frametitle{Nehomogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima} 
+\begin{alertblock}{Opšti oblik} \begin{eqnarray}
+y^{(n)} + a_{1}y^{(n-1)}+ ... + a_{n}y = f(x)
+\end{eqnarray}
+gdje su $a_{1},...,a_{n} \in \mathbb{R}$ poznate konstante. \end{alertblock}
+\begin{alertblock}{Način rješavanja}
+Rješenje je oblika: $y= y_H + y_P$
+Rješenje $y_H$ nalazimo iz odgovarajuće homogene jednačine (kao da umjesto $f(x)$ stoji 0).\\ Što se tiče nalaženja partikularnog rješenja $y_P$, imamo dva načina: metoda neodređenih koeficijenata i metoda varijacije konstanti.Mi ćemo ovdje koristiti metodu neodređenih koeficijenata! 
+\subsubsection{Metoda neodređenih koeficijenata}
+Ovdje podrazumijevamo samo specijalne slučajeve funkcije $f(x)!$
+\end{alertblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Nehomogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima} 
+\begin{alertblock}{Način rješavanja}
+\begin{enumerate}
+    \item[1.] $$f(x) = e^{\alpha x}P_{n}(x), $$ gdje je $P_{n}(x)= b_{0}x^{n} + b_{1}x^{n-1} +...+ b_{n} - $ polinom $n$ - tog stepena sa realnim koeficijentima i $\alpha \in \mathbb{R}.$
+    \begin{enumerate}
+        \item [(a)] Ako  $\alpha$ nije nula karakteristične jednačine, onda je: $y_{P}(x) = e^{\alpha x}R_{n}(x), $ pri čemu je: $R_{n}(x) = B_{0}x^{n} + B_{1}x^{n-1} +...+ B_{n}, $ gdje se koeficijenti $B_{0},...,B_{n}$ određuju smjenom $y_{P}, $ $y'_{P}, $ $y''_{P}, $ itd. u polaznu diferencijalnu jednačinu.
+        \item [(b)] Ako je $\alpha$  nula karakteristične jednačine, onda je: $$y_{P}(x) = xe^{\alpha x}R_{n}(x), $$ 
+        \item [(c)] Ako je $\alpha$  nula reda $k$ karakteristične jednačine, onda je: $$y_{P}(x) = x^{k}e^{\alpha x}R_{n}(x).$$ 
+    \end{enumerate}
+    \end{enumerate}
+    \end{alertblock}
+    \end{frame}
+    \begin{frame}
+\frametitle{Nehomogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima} 
+\begin{alertblock}{Način rješavanja}
+\begin{enumerate}
+    \item[2.] $$f(x) = e^{\alpha x}[P_{n}(x) \cos{\beta x} + Q_{m}(x) \sin{\beta x}],  $$ gdje je $P_{n}(x)$   polinom $n - $  tog stepena, a $Q_{m}(x)$ polinom $m - $  tog stepena s realnim koeficijentima i $\alpha, \beta \in \mathbb{R}.$
+    \begin{enumerate}
+        \item [(a)] $\alpha \pm i \beta$ nisu nule karakteristične jednačine, onda je:
+        $$y_{P}(x) = e^{\alpha x}[R_{N}(x) \cos{\beta x} + S_{N}(x) \sin{\beta x}], $$ 
+                  pri čemu su $R_{N}(x)$ i $S_{N}(x)$ polinomi $N - $  tog stepena, gdje je $N = \max(n,m)$ i  čiji se koeficijenti određuju smjenom $y_{P}, $ $y'_{P}, $ $y''_{P}, $ itd. u polaznu diferencijalnu jednačinu.
+        
+            \item [ (b)]$\alpha \pm i \beta$ su nule karakteristične jednačine, svaka reda $k, $ tada je:
+            $$y_P(x) =  x^{k}e^{\alpha x}[R_{N}(x) \cos{\beta x} + S_{N}(x) \sin{\beta x}]. $$ 
+        \end{enumerate}
+        \end{enumerate}
+        \end{alertblock}
+        \end{frame}
+         \begin{frame}
+\frametitle{Nehomogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima} 
+\begin{alertblock}{Način rješavanja}
+\begin{enumerate}
+       
+            \item[3.]  $$f(x) = h_{1}(x) + h_{2}(x) + ... +h_{m}(x) , $$ gdje su $h_{i}(x)$ $(i=1,...,m)$ oblika 1. ili 2. Tada je:
+            $$y_P(x) = y_{P_{1}}(x) + y_{P_{2}}(x) +...+  y_{P_{m}}(x).$$
+        \end{enumerate}
+\end{alertblock}
+
+\begin{pri}
+Naći rješenje diferencijalne jednačine:
+
+$$y'' + y' + y = x^2 + 3x +5.$$
+\end{pri}
+
+\end{frame}
+  \begin{frame}
+\frametitle{Nehomogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima} 
+\emph{Rješenje: }
+
+$$y(x) = y_{H}(x) + y_{P} (x).$$ 
+
+Tražimo rješenje pripadne homogene d.j. :
+
+$$y'' + y' + y = 0. $$
+
+Karakteristična jednačina:
+
+$$r^{2} + r +1 = 0.$$
+
+Rješenja K.J. su:\\
+
+$r_{1} = -\frac{1}{2} +\frac{\sqrt{3}}{2}i $ , $ r_{2} = -\frac{1}{2} -\frac{\sqrt{3}}{2}i.$ \\
+
+Rješenja $r_{1,2}$ su konjugovano kompleksni brojevi , gdje je:
+$\alpha = -\frac{1}{2} $ i $ \beta = \pm \frac{\sqrt{3}}{2}. $
+
+\end{frame}
+\begin{frame}
+\frametitle{Nehomogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima} 
+
+$$y_{H} = e^{-\frac{1}{2}x}\left[C_{1}\cos{\left(\frac{\sqrt{3}}{2} x \right) } + C_{2}\sin{\left(\frac{\sqrt{3}}{2} x\right)}\right].$$
+
+Tražimo partikularno rješenje:
+
+$$f(x) = x^2 + 3x +5, $$
+
+$P_{n}(x)= x^2 + 3x +5 $ - polinom drugog stepena sa realnim koeficijentima i $\alpha = 0.$ \\
+
+$$r_{1} = -\frac{1}{2} +\frac{\sqrt{3}}{2}i \ne \alpha, $$ 
+
+ $$ r_{2} = -\frac{1}{2} -\frac{\sqrt{3}}{2}i \ne \alpha.$$
+ 
+\end{frame}
+\begin{frame}
+\frametitle{Nehomogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima} 
+
+Partikularno rješenje je oblika:
+
+$y_{P}(x) = e^{\alpha x}R_{n}(x). $
+
+$$R_{n}(x) = Ax^{2} + Bx + C.  $$
+
+$$y_{P}(x) =  e^{0 \cdot x}(Ax^{2} + Bx + C) = Ax^{2} + Bx + C. $$
+
+$$y'_{P}(x) = 2Ax + B, $$
+
+$$y''_{P}(x) = 2A .$$
+
+$$y'' + y' + y = x^2 + 3x +5. \Longleftrightarrow$$
+
+$$2A + 2Ax + B  + Ax^{2} + Bx + C = x^2 + 3x +5 .$$
+
+$$A = 1$$
+$$2A + B = 3$$
+
+$$2A + B + C = 5$$
+\end{frame}
+\begin{frame}
+\frametitle{Nehomogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima} 
+$$A = 1$$
+$$2A + B = 3$$
+
+$$2A + B + C = 5$$
+
+$A = 1, $ $B = 1 $ i $C = 2.$ \\
+
+$$ y_{P } = Ax^{2} + Bx + C = x^{2} + x + 2. $$
+
+$$y_{H} + y_{P} =  e^{-\frac{1}{2}x}\left[C_{1}\cos{\left(\frac{\sqrt{3}}{2} x \right) } + C_{2}\sin{\left(\frac{\sqrt{3}}{2} x\right)}\right] + x^{2} + x + 2. $$
+
+ \hskip 10 cm $\clubsuit$ \\
+ 
+ 
+ 
+\end{frame}
+\begin{frame}
+\frametitle{Nehomogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima}
+ \begin{pri}
+ Riješiti diferencijalnu jednačinu:
+$$y^{(4)} - 6y''' + 9y'' = 3x^{2} + 2x.$$
+ \end{pri}
+\emph{Rješenje:}
+
+
+Prvo rješavamo pripadnu homogenu, odnosno:
+
+$$y^{(4)} - 6y''' + 9y'' = 0, $$
+
+Karakteristične jednačine:
+
+$$r^{4} - 6r^{3} + 9r^{2} = 0$$
+
+$$r^{2} (r^{2} - 6r + 9) = 0$$
+
+
+
+\end{frame}
+\begin{frame}
+\frametitle{Nehomogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima} 
+$$r^{2} (r-3)^{2} = 0$$
+
+Dakle, rješenja su: $r_{1,2} = 0$ i $r_{3,4} = 3.$\\
+
+ Dva višestruka rješenja i red višestrukosti je $k=2$ za oba.\\
+ 
+ Za  $r_{1,2} = 0$  vrijedi:
+ 
+$$y_{h1} = C_{1}e^{0 \cdot x} + C_{2}xe^{0\cdot x}  .$$
+
+Za $r_{3,4} = 3$  vrijedi:
+
+$$y_{h2} = C_{3}e^{3 \cdot x} + C_{4}xe^{3\cdot x}  .$$
+Rješenje pripadne homogene jednačine je, dakle, zbir ova dva rješenja:
+
+$$y_{H} = C_{1}e^{0 \cdot x} + C_{2}xe^{0\cdot x} + C_{3}e^{3 \cdot x} + C_{4}xe^{3\cdot x} = C_{1} + C_{2}x + C_{3}e^{3 \cdot x} + C_{4}xe^{3\cdot x}  .$$
+
+Tražimo partikularno rješenje:
+
+ 
+
+\end{frame}
+\begin{frame}
+\frametitle{Nehomogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima} 
+$$f(x) = 3x^{2} + 2x, $$
+
+$P_{n}(x)= 3x^{2} + 2x  $ - polinom drugog stepena sa realnim koeficijentima i $\alpha = 0.$ 
+
+$$r_{1,2} = 0 = \alpha, $$
+
+tj. $ \alpha $ je nula reda $k=2.$\\
+
+Partikularno rješenje je oblika:
+
+$$y_{P}(x) = x^{k}e^{\alpha x}R_{n}(x).$$ 
+Kako je $\alpha = 0, $ $k = 2$ i   $R_{n}(x) = Ax^{2} + Bx + C $\\
+
+$$y_{P}(x) = x^{2}(Ax^{2} + Bx + C).$$
+
+
+ 
+
+\end{frame}
+\begin{frame}
+\frametitle{Nehomogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima} 
+$$y'_{P}(x) = 4Ax^{3} + 3Bx^{2} + 2Cx$$
+
+ $$y''_{P}(x) = 12Ax^{2} + 6Bx + 2C$$
+
+ $$y'''_{P}(x) = 24Ax + 6B$$
+ 
+ $$y^{(4)}_{P}(x) = 24A.$$
+ 
+ $$y^{(4)} - 6y''' + 9y'' = 3x^{2} + 2x \Longleftrightarrow$$
+ 
+ $$24A - 6( 24Ax + 6B)+ 9(12Ax^{2} + 6Bx + 2C) = 3x^{2} + 2x.$$
+ 
+ $A = \frac{1}{36}, $ $B = \frac{2}{27}$  i $C = \frac{1}{9}.$
+
+
+ 
+
+
+
+
+\end{frame}
+\begin{frame}
+\frametitle{Nehomogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima}
+$$y_{P} = \frac{1}{36} x^{4} + \frac{2}{27}x^{3} + \frac{1}{9}x^{2}.$$
+
+Konačno rješenje:
+
+$$y = y_{H} + y_{P} = C_{1} + C_{2}x + C_{3}e^{3 \cdot x} + C_{4}xe^{3\cdot x} + \frac{1}{36} x^{4} + \frac{2}{27}x^{3} + \frac{1}{9}x^{2}.$$
+
+ \hskip 10 cm $\clubsuit$ \\
+ 
+ \begin{pri}
+ Riješiti diferencijalnu jednačinu:
+$$y'' - 2y' = e^{-x}(x\cos{x} + 3 \sin{x}).$$
+ \end{pri}
+
+\emph{Rješenje: }
+
+Rješavamo pripadnu homogenu:
+
+
+
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Nehomogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima}
+$$y'' - 2y' = 0. $$
+
+ Karakteristična jednačina:
+ 
+$$r^{2} - 2r = 0$$
+
+$$r(r - 2) = 0$$
+
+Dakle, vrijedi da je: $r_{1}= 0$ i $r_{2}= 2.$\\
+
+Stoga je: $$y_{H} = C_{1} + C_{2}e^{2x}.$$
+
+Tražimo partikularno rješenje:\\
+
+$$f(x) = e^{-x}(x\cos{x} + 3 \sin{x})$$
+
+U našem slučaju je $\alpha = -1$ i $\beta = 1, $ pa $\alpha + i \beta = -1 + i $ nije  nula k.j.
+
+
+\end{frame}
+\begin{frame}
+\frametitle{Nehomogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima}
+$y_{P}$ je oblika: \\
+
+$$y_{P}(x) = e^{\alpha x}[R_{N}(x) \cos{\beta x} + S_{N}(x) \sin{\beta x}], $$
+
+$P_{n}(x) = x, $ tj.$P_{n}(x) $  je polinom prvog stepena,  a $Q_{m}(x) = 3$, tj.$Q_{m}(x) $ je polinom nultog stepena.
+$R_{N}(x)$  i $S_{N}(x)$ - polinomi prvog stepena,  pa je:
+
+$$R_{N}(x) = Ax + B$$ 
+
+$$S_{N}(x) = Cx +D.$$ 
+
+$$y_{P}(x) = e^{- x}[(Ax + B) \cos{x} + (Cx +D) \sin{ x}] .$$
+
+$$y'_{P}(x) = e^{- x}[(Cx - Ax + A + D -B) \cos{x} + (C - B - Ax -Cx -D) \sin{ x}] .$$ 
+
+
+
+\end{frame}
+\begin{frame}
+\frametitle{Nehomogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima}
+$$y''_{P}(x) = e^{- x}[(-2Cx - 2A + 2C - 2D) \cos{x} + (2Ax -2A + 2B - 2C) \sin{ x}] .$$ 
+
+
+$$y'' - 2y' = e^{-x}(x\cos{x} + 3 \sin{x}). \Longleftrightarrow$$
+
+$e^{- x}[(-2Cx - 2A + 2C - 2D) \cos{x} + (2Ax -2A + 2B - 2C) \sin{ x}] - 2e^{- x}[(Cx - Ax + A + D -B) \cos{x} + (C - B - Ax -Cx -D) \sin{ x}] = e^{-x}(x\cos{x} + 3 \sin{x}).$ \\
+
+Odakle dobijamo da je:\\
+
+$A = \frac{1}{10}, $ $B = -\frac{14}{25}, $ $C = -\frac{1}{5} $ i $D = \frac{2}{25}. $ \\
+
+$$y_{P}(x) = e^{- x} \left[ \left(\frac{1}{10}x -\frac{14}{25}\right) \cos{x} + \left( -\frac{1}{5}x + \frac{2}{25}\right) \sin{ x}\right] .$$
+
+$$y = C_{1} + C_{2}e^{2x} + e^{- x} \left[ \left(\frac{1}{10}x -\frac{14}{25}\right) \cos{x} + \left( -\frac{1}{5}x + \frac{2}{25}\right) \sin{ x}\right] .$$
+\hskip 10 cm $\clubsuit$ \\
+
+\end{frame}
+\begin{frame}
+\frametitle{Nehomogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima}
+
+\begin{pri}
+Naći rješenje diferencijalne jednačine:
+$$y''' - 4y' = xe^{2x} + \sin{x} + x.$$
+\end{pri}
+
+\emph{Rješenje: }
+
+Rješavamo pripadnu homogenu:
+
+$$y''' - 4y' = 0.$$
+
+Karakteristična jednačina :
+
+$$r^{3} - 4r = 0.$$
+
+$$r(r^{2} - 4) = 0.$$
+
+Rješenja karakteristične jednačine su:
+\end{frame}
+\begin{frame}
+\frametitle{Nehomogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima}
+
+$r_{1} = 0 ,$  $r_{2} =  2 $ i $r_{3} =  -2 .$\\
+
+Svi su  korijeni (rješenja) K.J. su različiti i realni, pa je: 
+
+\begin{eqnarray}
+y_{H } = C_{1} + C_{2}e^{2x} + C_{3}e^{-2x}. 
+\end{eqnarray}
+Tražimo partikularno rješenje:
+
+$$f(x) = h_{1}(x) + h_{2}(x) + h_{3}(x)  = xe^{2x} + \sin{x} + x.$$
+
+Partikularno rješenje je oblika:
+
+\begin{eqnarray}
+y_{P} = y_{P_{1}} + y_{P_{2}} + y_{P_{3}}.
+\end{eqnarray}
+\end{frame}
+\begin{frame}
+\frametitle{Nehomogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima}
+
+
+
+\begin{enumerate}
+\item[$\star$] Za $h_{1}(x) = xe^{2x}$:\\
+
+$\alpha = 2$ je nula k.j.:
+
+$$y_{P_{1}} = x(Ax + B)e^{2x}.$$
+
+$$y'_{P_{1}}(x) = e^{2x}(2Ax^{2}+ 2Bx + 2Ax +B) .$$ 
+
+$$y''_{P_{1}}(x) = e^{2x}(4Ax^{2}+(4B+8A)x+4B+2A) .$$ 
+
+$$y'''_{P_{1}}(x) =e^{2x} (8Ax^{2}+(8B+24A)x+12B+12A) .$$ 
+
+\end{enumerate}
+\end{frame}
+\begin{frame}
+\frametitle{Nehomogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima}
+$$y''' - 4y' = xe^{2x} \Longleftrightarrow$$
+
+$$e^{2x} (8Ax^{2}+(8B+24A)x+12B+12A) - 4e^{2x}(2Ax^{2}+ 2Bx + 2Ax +B) = xe^{2x}.$$
+
+$A = \frac{1}{16}$ i $B =- \frac{3}{32}.$\\
+
+$$y_{P_{1}} = \left(\frac{1}{16}x^{2} -\frac{3}{32}x \right)e^{2x}.$$
+
+\begin{enumerate}
+    \item [$\star$] Za $ h_{2}(x) =\sin{x}:$\\
+    
+    $\pm i$ nije nula karakteristične jednačine:
+    
+$$y_{P_{2}} = C \cos{x} + D \sin{x}.$$
+
+$$y'_{P_{2}}(x) = -C \sin{x}+ D \cos{x} .$$ 
+\end{enumerate}
+\end{frame}
+\begin{frame}
+\frametitle{Nehomogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima}
+
+$$y''_{P_{2}}(x) = -C \cos{x} -D \sin{x}  .$$ 
+
+$$y'''_{P_{2}}(x) = C \sin{x} - D \cos{x} .$$ 
+$$y''' - 4y' =  \sin{x}\Longleftrightarrow$$
+
+$$C \sin{x} - D \cos{x} + 4C \sin{x} -  4D \cos{x} = \sin{x}$$
+
+Stoga je: $C = \frac{1}{5}, $ $D = 0. $
+
+
+$$y_{P_{2}} = \frac{1}{5} \cos{x}.$$
+
+\end{frame}
+\begin{frame}
+\frametitle{Nehomogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima}
+
+
+
+
+\begin{enumerate}
+\item[$\star$] Za $h_{3}(x) = x$:\\
+
+$\alpha = 0$ rješenje K.J. :
+
+$$y_{P_{3}} = x(Ex + F).$$
+
+$$y'_{P_{3}}(x) = 2Ex + F .$$ 
+
+$$y''_{P_{3}}(x) = 2E .$$ 
+
+$$y'''_{P_{3}}(x) = 0 .$$ 
+
+$$y''' - 4y' = x \Longleftrightarrow$$
+
+
+\end{enumerate}
+\end{frame}
+\begin{frame}
+\frametitle{Nehomogene diferencijalne jednačine višeg reda sa konstantnim koeficijentima}
+
+
+$$0 - 8Ex - 4F = x.$$
+
+$E = -\frac{1}{8}$ i $F =0.$
+
+$$y_{P_{3}} = -\frac{1}{8}x^{2}.$$
+
+
+$$y = y_{H} + y_{P} = y_{H} + (y_{P_{1}} + y_{P_{2}} + y_{P_{3}}).$$  
+Konačno rješenje:
+
+$$C_{1} + C_{2}e^{2x} + C_{3}e^{-2x} + \left(\frac{1}{16}x^{2} -\frac{3}{32}x \right)e^{2x} + \frac{1}{5} \cos{x} -\frac{1}{8}x^{2}. $$
+
+\hskip 10 cm $\clubsuit$ \\
+
+\end{frame}
+
+\end{document}
